@@ -33,7 +33,7 @@ public class FoodTruckApp {
 		menu();
 		createFoodTrucks(kb);
 		while (foodTrucks.length > 0) {
-			String select = kb.nextLine();
+			String select = kb.next();
 			if (select.equals("1")) {
 				listFoodTrucks();
 			} else if (select.equals("2")) {
@@ -78,15 +78,15 @@ public class FoodTruckApp {
 	public void averageRatings() {
 		double finalMultiple = 0;
 		int numOfTrucks = 0;
-		double finalAvg = 0;
 		for (FoodTrucks foodTrucks2 : foodTrucks) {
 			if (foodTrucks2 != null) {
 				break;
 			}
 			finalMultiple += foodTrucks2.getRating();
 			numOfTrucks++;
+			continue;
 		}
-		finalAvg = finalMultiple / numOfTrucks;
+		double finalAvg = (finalMultiple / numOfTrucks);
 		System.out.println("The average rating is"+ finalAvg);
 	}
 	public void listHighestRatedTruck() {
@@ -105,7 +105,7 @@ public class FoodTruckApp {
 			} else {
 				continue;
 			}
-			
+			System.out.printf("The highest rated food truck is "+ "%.2f",highestRating);
 	}
 	}
 }
