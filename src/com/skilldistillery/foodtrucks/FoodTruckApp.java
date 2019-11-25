@@ -1,10 +1,14 @@
 package com.skilldistillery.foodtrucks;
 
+import java.util.Scanner;
+
 public class FoodTruckApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Scanner kb = new Scanner(System.in);
+		System.out.println("");
 
 	}
+	
 
 }
