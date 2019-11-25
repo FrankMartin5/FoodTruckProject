@@ -18,12 +18,12 @@ public class FoodTruckApp {
 
 	public void menu() {
 		System.out.println("********************************");
-		System.out.println(" Welcome to the Food Truck App! ");
+		System.out.println("*Welcome to the Food Truck App!*");
 		System.out.println("********************************");
-		System.out.println("      1: List food trucks       ");
-		System.out.println("      2: See average ratings    ");
-		System.out.println("      3: See highest ratings    ");
-		System.out.println("      4:       Exit             ");
+		System.out.println("*     1: List food trucks      *");
+		System.out.println("*     2: See average ratings   *");
+		System.out.println("*     3: See highest ratings   *");
+		System.out.println("*     4:       Exit            *");
 		System.out.println("********************************");
 	}
 
@@ -39,6 +39,7 @@ public class FoodTruckApp {
 			String foodType = kb.nextLine();
 			System.out.println("Enter your Food Truck rating 1-5: ");
 			int rating = kb.nextInt();
+			kb.nextLine();
 			foodTrucks[i] = new FoodTrucks(name, foodType, rating);
 		}
 	}
