@@ -27,6 +27,29 @@ public class FoodTruckApp {
 		System.out.println("********************************");
 	}
 
+	
+
+	public void run() {
+		menu();
+		createFoodTrucks(kb);
+		while (foodTrucks.length > 0) {
+			String select = kb.nextLine();
+			if (select.equals("1")) {
+				listFoodTrucks();
+			} else if (select.equals("2")) {
+				averageRatings();
+			} else if (select.equals("3")) {
+				listHighestRatedTruck();
+			} else if (select.equals("4")) {
+				break;
+			} else {
+				System.out.println("Invalid response. Please Try again.");
+			}
+			System.out.println();
+			continue;
+		}
+	
+	}
 	public void createFoodTrucks(Scanner kb) {
 		for (int i = 0; i < foodTrucks.length; i++) {
 			System.out.println("Enter your food truck's name: ");
@@ -42,27 +65,6 @@ public class FoodTruckApp {
 			kb.nextLine();
 			foodTrucks[i] = new FoodTrucks(name, foodType, rating);
 		}
-	}
-
-	public void run() {
-		menu();
-		createFoodTrucks(kb);
-		while (foodTrucks.length > 0) {
-			int select = kb.nextInt();
-			if (select == 1) {
-				listFoodTrucks();
-			} else if (select == 2) {
-				averageRatings();
-			} else if (select == 3) {
-				listHighestRatedTruck();
-			} else if (select == 4) {
-				break;
-			} else {
-				System.out.println("Invalid response. Please Try again.");
-			}
-			System.out.println();
-		}
-
 	}
 
 	public void listFoodTrucks() {
