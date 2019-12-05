@@ -30,9 +30,11 @@ public class FoodTruckApp {
 	
 
 	public void run() {
-		menu();
-		createFoodTrucks(kb);
+//		menu();
+//		createFoodTrucks(kb);
 		while (foodTrucks.length > 0) {
+			menu();
+			createFoodTrucks(kb);
 			String select = kb.next();
 			if (select.equals("1")) {
 				listFoodTrucks();
@@ -48,21 +50,22 @@ public class FoodTruckApp {
 			System.out.println();
 			continue;
 		}
+		
 	
 	}
 	public void createFoodTrucks(Scanner kb) {
 		for (int i = 0; i < foodTrucks.length; i++) {
 			System.out.println("Enter your food truck's name: ");
-			String name = kb.nextLine();
+			String name = kb.next();
 			if (name.equalsIgnoreCase("exit")) {
-				System.out.println("Completed Food Truck input.");
+				System.out.println("Completed Food Truck input. Continue with the next menu option");
 				break;
 			}
 			System.out.println("Enter your type of food: ");
-			String foodType = kb.nextLine();
+			String foodType = kb.next();
 			System.out.println("Enter your Food Truck rating 1-5: ");
 			int rating = kb.nextInt();
-			kb.nextLine();
+//			kb.nextLine();
 			foodTrucks[i] = new FoodTrucks(name, foodType, rating);
 		}
 	}
@@ -75,19 +78,18 @@ public class FoodTruckApp {
 			System.out.println(foodTrucks2.toString());
 		}
 	}
+	
 	public void averageRatings() {
-		double finalMultiple = 0;
-		int numOfTrucks = 0;
-		for (FoodTrucks foodTrucks2 : foodTrucks) {
-			if (foodTrucks2 != null) {
+		double sum = 0;
+		int count = 0;
+		for (FoodTrucks truck : foodTrucks) {
+			if (truck == null) {
 				break;
 			}
-			finalMultiple += foodTrucks2.getRating();
-			numOfTrucks++;
-			continue;
+			sum += truck.getRating();
+			count++;
 		}
-		double finalAvg = (finalMultiple / numOfTrucks);
-		System.out.println("The average rating is"+ finalAvg);
+		System.out.println("Average Rating: " + (Math.round((sum / count) * 10) / 10.0));
 	}
 	public void listHighestRatedTruck() {
 		int numOf = 0;
