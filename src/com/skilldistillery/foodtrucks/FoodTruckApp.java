@@ -30,11 +30,9 @@ public class FoodTruckApp {
 	
 
 	public void run() {
-//		menu();
-//		createFoodTrucks(kb);
+		createFoodTrucks(kb);
 		while (foodTrucks.length > 0) {
 			menu();
-			createFoodTrucks(kb);
 			String select = kb.next();
 			if (select.equals("1")) {
 				listFoodTrucks();
@@ -54,18 +52,19 @@ public class FoodTruckApp {
 	
 	}
 	public void createFoodTrucks(Scanner kb) {
+		System.out.println("Start by creating your Food Trucks");
 		for (int i = 0; i < foodTrucks.length; i++) {
 			System.out.println("Enter your food truck's name: ");
-			String name = kb.next();
+			String name = kb.nextLine();
 			if (name.equalsIgnoreCase("exit")) {
 				System.out.println("Completed Food Truck input. Continue with the next menu option");
 				break;
 			}
 			System.out.println("Enter your type of food: ");
-			String foodType = kb.next();
+			String foodType = kb.nextLine();
 			System.out.println("Enter your Food Truck rating 1-5: ");
 			int rating = kb.nextInt();
-//			kb.nextLine();
+			kb.nextLine();
 			foodTrucks[i] = new FoodTrucks(name, foodType, rating);
 		}
 	}
